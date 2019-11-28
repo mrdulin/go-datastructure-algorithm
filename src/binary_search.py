@@ -8,11 +8,11 @@ def binary_search(arr, item):
     8个元素的列表，最多需要3步，即可找到元素在列表中的位置，即索引
 
     Arguments:
-        arr {[type]} -- [有序列表]
+        arr {[list]} -- [有序列表]
         item {[type]} -- [要找的元素]
 
     Returns:
-        [type] -- [要找的元素在列表中的索引]
+        [int] -- [要找的元素在列表中的索引]
     """
     minIndex = 0
     maxIndex = len(arr) - 1
