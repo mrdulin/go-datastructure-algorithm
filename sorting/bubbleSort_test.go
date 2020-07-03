@@ -1,6 +1,7 @@
 package sorting_test
 
 import (
+	"github.com/mrdulin/go-datastructure-algorithm/util"
 	"reflect"
 	"testing"
 	"github.com/mrdulin/go-datastructure-algorithm/sorting"
@@ -8,7 +9,7 @@ import (
 
 func TestBubbleSort(t *testing.T) {
 	t.Run("should sort int slice correctly", func(t *testing.T) {
-		a := generateSeries(5)
+		a := util.GenerateSeries(5)
 		got := sorting.BubbleSort(a)
 		want := []int{1, 2, 3, 4, 5}
 		if !reflect.DeepEqual(got, want) {
@@ -19,7 +20,7 @@ func TestBubbleSort(t *testing.T) {
 
 func TestBubbleSortOptimize(t *testing.T) {
 	t.Run("should sort int slice correctly", func(t *testing.T) {
-		a := generateSeries(5)
+		a := util.GenerateSeries(5)
 		got := sorting.BubbleSortOptimize(a)
 		want := []int{1, 2, 3, 4, 5}
 		if !reflect.DeepEqual(got, want) {
@@ -42,7 +43,7 @@ func TestBubbleSortOptimize(t *testing.T) {
 //PASS
 //ok      github.com/mrdulin/go-datastructure-algorithm/sorting   6.318s
 func BenchmarkBubbleSort(b *testing.B) {
-	a := generateSeries(1000)
+	a := util.GenerateSeries(1000)
 	for i := 0; i < b.N; i++ {
 		sorting.BubbleSort(a)
 	}
@@ -55,16 +56,10 @@ func BenchmarkBubbleSort(b *testing.B) {
 //BenchmarkBubbleSortOptimize         1803            580165 ns/op
 //BenchmarkBubbleSortOptimize         1812            566454 ns/op
 func BenchmarkBubbleSortOptimize(b *testing.B) {
-	a := generateSeries(1000)
+	a := util.GenerateSeries(1000)
 	for i := 0; i < b.N; i++ {
 		sorting.BubbleSortOptimize(a)
 	}
 }
 
-func generateSeries(size int) []int {
-	var a []int
-	for i := size; i > 0; i-- {
-		a = append(a, i)
-	}
-	return a
-}
+
