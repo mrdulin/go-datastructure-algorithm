@@ -1,2 +1,1 @@
-# go datastructure algorithm
-
+# The googleads Go client library
